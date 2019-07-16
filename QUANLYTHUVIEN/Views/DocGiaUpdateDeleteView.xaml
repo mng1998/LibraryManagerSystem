@@ -1,0 +1,105 @@
+﻿<Window x:Class="QUANLYTHUVIEN.Views.DocGiaUpdateDeleteView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QUANLYTHUVIEN.Views"
+        mc:Ignorable="d"
+        TextElement.FontFamily="Arial Norrow"
+        TextElement.FontStretch="Expanded"
+        TextElement.FontSize="15"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="DocGiaUpdateDeleteView" Height="450" Width="500">
+   
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="230"/>
+            <Setter Property="Height" Value="30"/>
+
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="{x:Type GroupBox}">
+
+            <Setter Property="BorderBrush" Value="#FF0069C9"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="230"/>
+            <Setter Property="Height" Value="30"/>
+
+        </Style>
+        <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource MaterialDesignDatePicker}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="230"/>
+            <Setter Property="Height" Value="30"/>
+
+        </Style>
+    </Window.Resources>
+    <GroupBox HorizontalAlignment="Center" Header="Thông tin độc giả">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition  Width="280"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0" />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!--Column 0-->
+            <TextBlock Grid.Row="1" Text="Mã độc giả: "/>
+            <TextBlock Grid.Row="2" Text="Họ và tên: " />
+            <TextBlock Grid.Row="3" Text="Ngày sinh: "/>
+            <TextBlock Grid.Row="4" Text="Chức danh: " />
+            <TextBlock Grid.Row="5" Text="Địa chỉ: "/>
+            <TextBlock Grid.Row="6" Text="Số điện thoại: " />
+            <TextBlock Grid.Row="7" Text="Email: "/>
+            <TextBlock Grid.Row="8" Text="Ngày lập phiếu: " />
+            <TextBlock Grid.Row="9" Text="Ngày hết hạn: " />
+            <!--END-->
+
+            <!--Column 1-->
+            <TextBox Name="txtMaDocGia"  Grid.Column="1" Grid.Row="1" KeyDown="txtMaDocGia_KeyDown"/>
+            <TextBox Name="txtTenDocGia"  Grid.Column="1" Grid.Row="2"/>
+            <DatePicker Name="dpNgaySinh" Grid.Column="1" Grid.Row="3"/>
+            <ComboBox Name="cbLoaiDG" Grid.Column="1" Grid.Row="4"/>
+            <TextBox Name="txtDiaChi" Grid.Column="1" Grid.Row="5"></TextBox>
+            <TextBox Name="txtPhone" Grid.Column="1" Grid.Row="6" PreviewTextInput="txtPhone_PreviewTextInput"></TextBox>
+            <TextBox Name="txtEmail" Grid.Column="1" Grid.Row="7" ></TextBox>
+            <DatePicker Name="dpNgayLapPhieu" Grid.Column="1" Grid.Row="8" IsEnabled="False">
+                <!--Loaded="txtNgayLapPhieu_Loaded"-->
+            </DatePicker>
+            <DatePicker Name="dpNgayHetHan" Grid.Column="1" Grid.Row="9">
+                <!--Loaded="txtNgayHetHan_Loaded"-->
+            </DatePicker>
+            <!--END-->
+
+            <!--Button-->
+            <Grid Grid.Row="10" Grid.ColumnSpan="2" Margin="0,0,43,0">
+                <Button x:Name="btUpdate" Width="75" Height="30"  Click="btUpdate_Click" >Update</Button>
+                <Button x:Name="btDelete" Width="75" Height="30" Click="btDelete_Click" Margin="237,4,45,5" >Delete</Button>
+            </Grid>
+            <!--END-->
+        </Grid>
+    </GroupBox>
+</Window>

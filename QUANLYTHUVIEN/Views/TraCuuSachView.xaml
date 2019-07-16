@@ -1,0 +1,111 @@
+﻿<Window x:Class="QUANLYTHUVIEN.Views.TraCuuSachView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.FontFamily="Time New Romans"
+        TextElement.FontStretch="Expanded"
+        TextElement.FontSize="14"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="TraCuuSachView" Height="600" Width="900">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource MaterialDesignDatePicker}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style TargetType="{x:Type GroupBox}" >
+            <Setter Property="Margin" Value="15"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Border>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                        <GradientStop Color="#00008B" Offset="0"></GradientStop>
+                        <GradientStop Color="#1E90FF" Offset="0.567"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <!--Logo-->
+            <Image Width="95" Height="95" Margin="10" 
+        Source="C:\Users\Yen Nguyen\Pictures\Book-Open.png"
+        VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <Label Content="LIBRARY" Margin="110,20,0,0" TextElement.FontSize="25" TextElement.FontWeight="Bold" TextElement.Foreground="White" 
+        VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <Label Content="MANAGEMENT" Margin="110,50,0,0" TextElement.FontSize="20" TextElement.FontWeight="Bold" TextElement.Foreground="White"
+        VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <!--END-->
+        </Grid>
+        <Grid Grid.Row="1" Background="#EFEFEF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Tên Sách"/>
+            <TextBlock Grid.Column="2" Text="Thể lọai"/>
+            <TextBlock Grid.Column="4" Text="Tac gia" Height="20" Margin="10,10,0,0"/>
+            <TextBlock Grid.Column="6" Text="NXB" />
+            <TextBox Name="txtTenSach" Grid.Column="1" 
+                      materialDesign:HintAssist.Hint="Nhập tên sách"
+                     FontStyle="Italic"> 
+            </TextBox>
+            <ComboBox Name="cbTheLoai" Grid.Column="3"
+                      materialDesign:HintAssist.Hint="------ Tất cả ------"
+                      SelectionChanged="cbTheLoai_SelectionChanged">
+                
+            </ComboBox>
+            <ComboBox Name="cbTacGia" Grid.Column="5" 
+                      materialDesign:HintAssist.Hint="------ Tất cả ------"
+                      SelectionChanged="cbTacGia_SelectionChanged"></ComboBox>
+            <ComboBox Name="cbNXB" Grid.Column="7" 
+                      materialDesign:HintAssist.Hint="------ Tat ca ------"
+                      SelectionChanged="cbNXB_SelectionChanged"></ComboBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <DataGrid Name="SachList">
+            </DataGrid>
+        </Grid>
+        <Button Grid.Row="3" HorizontalAlignment="Right" Margin="0,5,10,10" Content="Thoát" Name="btThoat" Width="80" Height="25"></Button>
+    </Grid>
+</Window>
